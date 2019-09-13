@@ -1,4 +1,4 @@
-# @binogi/angular-moment-es6
+# @binogi/angucomplete-alt-es6
 
 ES6 version of original [angucomplete-alt](https://github.com/ghiden/angucomplete-alt) package.
 
