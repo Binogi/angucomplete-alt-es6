@@ -544,20 +544,21 @@ angucompleteAltModule.directive(
                     return false
                 }
 
-                function searchTimerComplete (str) {
+                async function searchTimerComplete (str) {
                     // Begin the search
                     if (!str || str.length < minlength)
                         return
 
                     if (scope.localData) {
-                        scope.$apply(async function () {
-                            var matches
-                            if (typeof scope.localSearch() !== 'undefined')
-                                matches = await scope.localSearch()(str, scope.localData)
+                        var matches
 
-                            else
-                                matches = getLocalResults(str)
+                        if (typeof scope.localSearch() !== 'undefined')
+                            matches = await scope.localSearch()(str, scope.localData)
 
+                        else
+                            matches = getLocalResults(str)
+
+                        scope.$apply(function () {
                             scope.searching = false
                             processResults(matches, str)
                         })
