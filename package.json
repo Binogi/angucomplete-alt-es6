@@ -2,7 +2,7 @@
     "name": "@binogi/angucomplete-alt-es6",
     "version": "1.0.3",
     "description": "ES6 version of angucomplete-alt package",
-    "main": "dirst/angucomplete-alt.js",
+    "main": "dist/angucomplete-alt.js",
     "scripts": {
         "build": "babel -d dist/ src/",
         "test": "echo \"Error: no test specified\" && exit 1"
