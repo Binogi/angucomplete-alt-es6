@@ -1,10 +1,11 @@
 {
     "name": "@binogi/angucomplete-alt-es6",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "ES6 version of angucomplete-alt package",
-    "main": "angucomplete-alt.js",
+    "main": "dirst/angucomplete-alt.js",
     "scripts": {
-      "test": "echo \"Error: no test specified\" && exit 1"
+        "build": "babel -d dist/ src/",
+        "test": "echo \"Error: no test specified\" && exit 1"
     },
     "author": "",
     "license": "MIT",
@@ -14,5 +15,12 @@
     },
     "dependencies": {
       "moment": "^2.24.0"
+    },
+    "devDependencies": {
+        "@babel/cli": "^7.4.4",
+        "@babel/core": "^7.4.5",
+        "@babel/node": "^7.4.5",
+        "@babel/plugin-transform-runtime": "^7.4.4",
+        "@babel/preset-env": "^7.4.5"
     }
 }
