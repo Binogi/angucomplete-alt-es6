@@ -544,6 +544,7 @@ angucompleteAltModule.directive(
                     return false
                 }
 
+                const searchesInProgress = []
                 async function searchTimerComplete (str) {
                     // Begin the search
                     if (!str || str.length < minlength)
@@ -552,8 +553,22 @@ angucompleteAltModule.directive(
                     if (scope.localData) {
                         var matches
 
-                        if (typeof scope.localSearch() !== 'undefined')
+                        if (typeof scope.localSearch() !== 'undefined') {
+                            const searchId = Date.now()
+                            searchesInProgress.push(searchId)
+
                             matches = await scope.localSearch()(str, scope.localData)
+
+                            const lastSearchId = searchesInProgress[searchesInProgress.length - 1]
+
+                            // Remove current search from array
+                            const currentSearchIndex = searchesInProgress.findIndex(id => id === searchId)
+                            searchesInProgress.splice(currentSearchIndex, 1)
+
+                            // Stop the search if a new one has been started
+                            if (searchId !== lastSearchId)
+                                return
+                        }
 
                         else
                             matches = getLocalResults(str)

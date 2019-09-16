@@ -1,6 +1,6 @@
 {
     "name": "@binogi/angucomplete-alt-es6",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "ES6 version of angucomplete-alt package",
     "main": "angucomplete-alt.js",
     "scripts": {
