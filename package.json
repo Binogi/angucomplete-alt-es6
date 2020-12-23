@@ -14,7 +14,7 @@
         "url": "git+https://github.com/Binogi/angucomplete-alt-es6.git"
     },
     "dependencies": {
-      "moment": "^2.24.0"
+        "moment": "^2.24.0"
     },
     "devDependencies": {
         "@babel/cli": "^7.4.4",

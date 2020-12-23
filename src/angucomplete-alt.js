@@ -521,10 +521,16 @@ angucompleteAltModule.directive(
                     for (i = 0; i < scope.localData.length; i++) {
                         match = false
 
-                        for (s = 0; s < searchFields.length; s++) {
-                            value = extractValue(scope.localData[i], searchFields[s]) || ''
-                            match = match || (value.toString().toLowerCase().indexOf(str.toString().toLowerCase()) >= 0)
-                        }
+                        if (searchFields.some(field => {
+                            let value = extractValue(scope.localData[i], field)
+                            if (
+                                value.toString().toLowerCase().includes(str.toString().toLowerCase()) ||
+                                str.toString().toLowerCase().includes(value.toString().toLowerCase())
+                            ) {
+                                return true
+                            }
+                        }))
+                            match = true
 
                         if (match)
                             matches[matches.length] = scope.localData[i]
