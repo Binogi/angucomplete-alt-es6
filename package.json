@@ -9,10 +9,6 @@
     },
     "author": "",
     "license": "MIT",
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/Binogi/angucomplete-alt-es6.git"
-    },
     "dependencies": {
         "moment": "^2.24.0"
     },
