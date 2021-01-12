@@ -519,8 +519,6 @@ angucompleteAltModule.directive(
                         str = scope.parseInput()(str)
 
                     for (i = 0; i < scope.localData.length; i++) {
-                        match = false
-
                         if (searchFields.some(field => {
                             let value = extractValue(scope.localData[i], field)
                             if (
@@ -530,9 +528,6 @@ angucompleteAltModule.directive(
                                 return true
                             }
                         }))
-                            match = true
-
-                        if (match)
                             matches[matches.length] = scope.localData[i]
                     }
                     return matches
