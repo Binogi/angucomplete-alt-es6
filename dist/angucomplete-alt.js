@@ -426,14 +426,13 @@ angucompleteAltModule.directive('angucompleteAlt', ['$q', '$parse', '$http', '$s
       if (typeof scope.parseInput() !== 'undefined') str = scope.parseInput()(str);
 
       for (i = 0; i < scope.localData.length; i++) {
-        match = false;
+        if (searchFields.some(function (field) {
+          var value = extractValue(scope.localData[i], field);
 
-        for (s = 0; s < searchFields.length; s++) {
-          value = extractValue(scope.localData[i], searchFields[s]) || '';
-          match = match || value.toString().toLowerCase().indexOf(str.toString().toLowerCase()) >= 0;
-        }
-
-        if (match) matches[matches.length] = scope.localData[i];
+          if (value.toString().toLowerCase().includes(str.toString().toLowerCase()) || str.toString().toLowerCase().includes(value.toString().toLowerCase())) {
+            return true;
+          }
+        })) matches[matches.length] = scope.localData[i];
       }
 
       return matches;
