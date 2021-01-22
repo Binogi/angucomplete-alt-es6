@@ -1,6 +1,6 @@
 {
     "name": "@binogi/angucomplete-alt-es6",
-    "version": "1.0.4",
+    "version": "1.1.0",
     "description": "ES6 version of angucomplete-alt package",
     "main": "dist/angucomplete-alt.js",
     "scripts": {
@@ -9,10 +9,6 @@
     },
     "author": "",
     "license": "MIT",
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/Binogi/angucomplete-alt-es6.git"
-    },
     "dependencies": {
         "moment": "^2.24.0"
     },
